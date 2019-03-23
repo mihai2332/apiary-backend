@@ -1,15 +1,15 @@
 package com.mimihaisuper.apiary.controller;
 
-import com.mimihaisuper.apiary.model.Role;
-import com.mimihaisuper.apiary.model.RoleName;
-import com.mimihaisuper.apiary.model.User;
+import com.mimihaisuper.apiary.model.authModel.Role;
+import com.mimihaisuper.apiary.model.authModel.RoleName;
+import com.mimihaisuper.apiary.model.authModel.User;
 import com.mimihaisuper.apiary.repository.RoleRepository;
 import com.mimihaisuper.apiary.repository.UserRepository;
-import com.mimihaisuper.apiary.service.JwtProvider;
-import com.mimihaisuper.apiary.service.form.LoginForm;
-import com.mimihaisuper.apiary.service.form.SignUpForm;
-import com.mimihaisuper.apiary.service.response.JwtResponse;
-import com.mimihaisuper.apiary.service.response.ResponseMessage;
+import com.mimihaisuper.apiary.service.auth.JwtProvider;
+import com.mimihaisuper.apiary.service.auth.form.LoginForm;
+import com.mimihaisuper.apiary.service.auth.form.SignUpForm;
+import com.mimihaisuper.apiary.service.auth.response.JwtResponse;
+import com.mimihaisuper.apiary.service.auth.response.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

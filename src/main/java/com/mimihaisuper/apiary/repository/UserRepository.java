@@ -1,6 +1,6 @@
 package com.mimihaisuper.apiary.repository;
 
-import com.mimihaisuper.apiary.model.User;
+import com.mimihaisuper.apiary.model.authModel.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,8 +1,8 @@
 package com.mimihaisuper.apiary;
 
-import com.mimihaisuper.apiary.service.JwtAuthEntryPoint;
-import com.mimihaisuper.apiary.service.JwtAuthTokenFilter;
-import com.mimihaisuper.apiary.service.UserDetailsServiceImpl;
+import com.mimihaisuper.apiary.service.auth.JwtAuthEntryPoint;
+import com.mimihaisuper.apiary.service.auth.JwtAuthTokenFilter;
+import com.mimihaisuper.apiary.service.auth.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

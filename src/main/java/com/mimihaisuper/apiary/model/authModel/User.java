@@ -1,5 +1,6 @@
-package com.mimihaisuper.apiary.model;
+package com.mimihaisuper.apiary.model.authModel;
 
+import com.mimihaisuper.apiary.model.AcquisitionModule;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -46,6 +47,9 @@ public class User{
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<AcquisitionModule> acquisitionModules;
 
     public User() {}
 
@@ -102,5 +106,13 @@ public class User{
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Set<AcquisitionModule> getAcquisitionModules() {
+        return acquisitionModules;
+    }
+
+    public void setAcquisitionModules(Set<AcquisitionModule> acquisitionModules) {
+        this.acquisitionModules = acquisitionModules;
     }
 }

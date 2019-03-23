@@ -1,4 +1,4 @@
-package com.mimihaisuper.apiary.model;
+package com.mimihaisuper.apiary.model.authModel;
 
 public enum RoleName {
     ROLE_USER,

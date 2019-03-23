@@ -1,7 +1,7 @@
-package com.mimihaisuper.apiary.service;
+package com.mimihaisuper.apiary.service.auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mimihaisuper.apiary.model.User;
+import com.mimihaisuper.apiary.model.authModel.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

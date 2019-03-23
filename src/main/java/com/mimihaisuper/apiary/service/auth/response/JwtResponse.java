@@ -1,4 +1,4 @@
-package com.mimihaisuper.apiary.service.response;
+package com.mimihaisuper.apiary.service.auth.response;
 
 import org.springframework.security.core.GrantedAuthority;
 

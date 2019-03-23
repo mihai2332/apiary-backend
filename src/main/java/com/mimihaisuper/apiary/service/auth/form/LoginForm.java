@@ -1,4 +1,4 @@
-package com.mimihaisuper.apiary.service.form;
+package com.mimihaisuper.apiary.service.auth.form;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

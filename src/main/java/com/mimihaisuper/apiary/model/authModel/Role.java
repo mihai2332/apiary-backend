@@ -1,4 +1,4 @@
-package com.mimihaisuper.apiary.model;
+package com.mimihaisuper.apiary.model.authModel;
 
 import org.hibernate.annotations.NaturalId;
 

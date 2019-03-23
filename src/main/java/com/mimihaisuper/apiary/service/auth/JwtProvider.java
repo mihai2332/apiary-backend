@@ -1,4 +1,4 @@
-package com.mimihaisuper.apiary.service;
+package com.mimihaisuper.apiary.service.auth;
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;

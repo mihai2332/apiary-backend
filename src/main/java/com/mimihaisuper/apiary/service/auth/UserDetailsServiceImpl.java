@@ -1,6 +1,6 @@
-package com.mimihaisuper.apiary.service;
+package com.mimihaisuper.apiary.service.auth;
 
-import com.mimihaisuper.apiary.model.User;
+import com.mimihaisuper.apiary.model.authModel.User;
 import com.mimihaisuper.apiary.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
