@@ -1,5 +1,6 @@
 package com.mimihaisuper.apiary.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mimihaisuper.apiary.model.authModel.User;
 
 import javax.persistence.*;
@@ -17,9 +18,11 @@ public class AcquisitionModule {
     private String name;
 
     @OneToMany(mappedBy = "acquisitionModule")
+    @JsonIgnore
     private Set<Sensor> sensors;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "USER_ID")
     private User user;
 

@@ -1,5 +1,7 @@
 package com.mimihaisuper.apiary.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,6 +21,7 @@ public class Measurement {
     private Date creationDate;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "SENSOR_ID")
     private Sensor sensor;
 

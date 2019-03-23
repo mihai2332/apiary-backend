@@ -1,5 +1,7 @@
 package com.mimihaisuper.apiary.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -16,6 +18,7 @@ public class Sensor {
     private String sensorType;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "MODULE_ID")
     private AcquisitionModule acquisitionModule;
 

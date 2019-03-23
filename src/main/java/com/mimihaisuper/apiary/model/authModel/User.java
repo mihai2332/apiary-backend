@@ -1,5 +1,6 @@
 package com.mimihaisuper.apiary.model.authModel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mimihaisuper.apiary.model.AcquisitionModule;
 import org.hibernate.annotations.NaturalId;
 
@@ -43,12 +44,14 @@ public class User{
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private Set<AcquisitionModule> acquisitionModules;
 
     public User() {}
