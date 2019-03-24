@@ -33,4 +33,10 @@ public class ModulesController {
     public ResponseEntity getSensors(@PathVariable(name = "uuid") String uuid){
         return ResponseEntity.ok(measurementService.getSensors(uuid));
     }
+
+    @PostMapping(value = "/{uuid}/sensor/{sensorName}")
+    public ResponseEntity getMeasurements(@PathVariable(name = "uuid") String uuid,
+                                          @PathVariable(name = "sensorName") String sensorName){
+
+    }
 }
