@@ -1,6 +1,7 @@
 package com.mimihaisuper.apiary.controller;
 
 import com.mimihaisuper.apiary.model.AcquisitionModule;
+import com.mimihaisuper.apiary.model.dto.ModuleDTO;
 import com.mimihaisuper.apiary.service.MeasurementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +24,13 @@ public class ModulesController {
     }
 
     @PostMapping({"/", ""})
-    public ResponseEntity createOrAttachModule(@RequestBody String uuid, Principal principal){
-        measurementService.createOrAttachModule(principal.getName(), uuid);
+    public ResponseEntity createOrAttachModule(@RequestBody ModuleDTO moduleDTO, Principal principal){
+        measurementService.createOrAttachModule(principal.getName(), moduleDTO.uuid, moduleDTO.name);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value = "/{uuid}/sensor")
+    public ResponseEntity getSensors(@PathVariable(name = "uuid") String uuid){
+        return ResponseEntity.ok(measurementService.getSensors(uuid));
     }
 }

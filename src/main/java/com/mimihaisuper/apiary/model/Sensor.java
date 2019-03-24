@@ -23,6 +23,7 @@ public class Sensor {
     private AcquisitionModule acquisitionModule;
 
     @OneToMany(mappedBy = "sensor")
+    @JsonIgnore
     private Set<Measurement> measurements;
 
     public Long getId() {

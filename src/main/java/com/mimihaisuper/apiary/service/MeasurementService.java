@@ -1,6 +1,7 @@
 package com.mimihaisuper.apiary.service;
 
 import com.mimihaisuper.apiary.model.AcquisitionModule;
+import com.mimihaisuper.apiary.model.Sensor;
 import com.mimihaisuper.apiary.model.authModel.User;
 import com.mimihaisuper.apiary.repository.AcquisitionModuleRepository;
 import com.mimihaisuper.apiary.repository.MeasurementRepository;
@@ -32,19 +33,25 @@ public class MeasurementService {
         return acquisitionModuleRepository.findByUser(user.get());
     }
 
-    public void createOrAttachModule(String username, String uuid) {
+    public void createOrAttachModule(String username, String uuid, String name) {
         Optional<User> user = userRepository.findByUsername(username);
-        if (acquisitionModuleRepository.existsByName(uuid)) {
-            AcquisitionModule acquisitionModule = acquisitionModuleRepository.findByName(uuid);
+        if (acquisitionModuleRepository.existsByUuid(uuid)) {
+            AcquisitionModule acquisitionModule = acquisitionModuleRepository.findByUuid(uuid);
             acquisitionModule.setUser(user.get());
             acquisitionModuleRepository.save(acquisitionModule);
             logger.info("{} added to user {}",uuid,username);
         } else {
             AcquisitionModule acquisitionModule = new AcquisitionModule();
-            acquisitionModule.setName(uuid);
+            acquisitionModule.setUuid(uuid);
+            acquisitionModule.setName(name);
             acquisitionModule.setUser(user.get());
             acquisitionModuleRepository.save(acquisitionModule);
             logger.info("{} created and added to user {}",uuid,username);
         }
+    }
+
+    public Set<Sensor> getSensors(String uuid) {
+        AcquisitionModule acquisitionModule = acquisitionModuleRepository.findByUuid(uuid);
+        return acquisitionModule.getSensors();
     }
 }

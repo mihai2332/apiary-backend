@@ -17,6 +17,9 @@ public class AcquisitionModule {
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "UUID")
+    private String uuid;
+
     @OneToMany(mappedBy = "acquisitionModule")
     @JsonIgnore
     private Set<Sensor> sensors;
@@ -56,5 +59,13 @@ public class AcquisitionModule {
 
     public void setSensors(Set<Sensor> sensors) {
         this.sensors = sensors;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

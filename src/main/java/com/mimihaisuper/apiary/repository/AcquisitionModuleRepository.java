@@ -10,6 +10,12 @@ import java.util.Set;
 @Repository
 public interface AcquisitionModuleRepository extends CrudRepository<AcquisitionModule, Long> {
     boolean existsByName(String name);
+
+    boolean existsByUuid(String uuid);
+
     AcquisitionModule findByName(String name);
+
+    AcquisitionModule findByUuid(String uuid);
+
     Set<AcquisitionModule> findByUser(User user);
 }
