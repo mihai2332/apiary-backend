@@ -44,4 +44,16 @@ public class ModulesController {
         Set<Measurement> measurements = measurementService.getMeasurementsInDataRange(sensorChartDTO);
         return ResponseEntity.ok(measurements);
     }
+
+    @PostMapping(value = "/measurement/all")
+    public ResponseEntity getAllMeasurements(@RequestBody SensorChartDTO sensorChartDTO) {
+        Set<Measurement> measurements = measurementService.getAllMeasurements(sensorChartDTO);
+        return ResponseEntity.ok(measurements);
+    }
+
+    @DeleteMapping(value = "/{uuid}")
+    public ResponseEntity deleteModule(@PathVariable(name = "uuid") String uuid) {
+        moduleService.detachModule(uuid);
+        return ResponseEntity.ok().build();
+    }
 }

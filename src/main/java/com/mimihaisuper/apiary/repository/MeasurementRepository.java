@@ -11,4 +11,6 @@ import java.util.Set;
 @Repository
 public interface MeasurementRepository extends CrudRepository<Measurement, Long> {
     Set<Measurement> findAllByCreationDateBetweenAndSensor(Date begin, Date end, Sensor sensor);
+
+    Set<Measurement> findAllBySensor(Sensor sensor);
 }

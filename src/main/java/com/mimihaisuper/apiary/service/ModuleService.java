@@ -49,4 +49,10 @@ public class ModuleService {
         AcquisitionModule acquisitionModule = acquisitionModuleRepository.findByUuid(uuid);
         return acquisitionModule.getSensors();
     }
+
+    public void detachModule(String uuid) {
+        AcquisitionModule module = acquisitionModuleRepository.findByUuid(uuid);
+        module.setUser(null);
+        acquisitionModuleRepository.save(module);
+    }
 }
