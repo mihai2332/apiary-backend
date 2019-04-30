@@ -6,6 +6,7 @@ import com.mimihaisuper.apiary.model.dto.ModuleDTO;
 import com.mimihaisuper.apiary.model.dto.SensorChartDTO;
 import com.mimihaisuper.apiary.service.MeasurementService;
 import com.mimihaisuper.apiary.service.ModuleService;
+import com.mimihaisuper.apiary.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,8 @@ public class ModulesController {
     ModuleService moduleService;
     @Autowired
     MeasurementService measurementService;
+    @Autowired
+    SensorService sensorService;
 
     @GetMapping({"/", ""})
     public ResponseEntity getModules(Principal principal) {
@@ -54,6 +57,11 @@ public class ModulesController {
     @DeleteMapping(value = "/{uuid}")
     public ResponseEntity deleteModule(@PathVariable(name = "uuid") String uuid) {
         moduleService.detachModule(uuid);
+        return ResponseEntity.ok().build();
+    }
+    @DeleteMapping(value = "/{uuid}/{sensorType}")
+    public ResponseEntity deleteModule(@PathVariable(name = "uuid") String uuid, @PathVariable(name = "sensorType") String sensorType) {
+        sensorService.deleteSensor(uuid, sensorType);
         return ResponseEntity.ok().build();
     }
 }

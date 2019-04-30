@@ -22,7 +22,7 @@ public class Sensor {
     @JoinColumn(name = "MODULE_ID")
     private AcquisitionModule acquisitionModule;
 
-    @OneToMany(mappedBy = "sensor")
+    @OneToMany(mappedBy = "sensor", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private Set<Measurement> measurements;
 
